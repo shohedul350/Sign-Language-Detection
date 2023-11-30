@@ -1,5 +1,7 @@
 # Sign Language Detection using YOLOv5
 
+![training Image](train_batch2.jpg)
+
 ## Introduction
 The Sign Language Detection project focuses on the recognition and interpretation of hand gestures within sign language. This comprehensive solution utilizes the YOLOv5 object detection model to effectively identify common sign language expressions like "Hello," "I love you," "Yes," "No," and "Please." By doing so, it aims to enhance communication and foster a deeper understanding between individuals who use sign language and those who may not be familiar with it.
 
@@ -42,7 +44,29 @@ After Collecting  Data we have to format this image Yolo format  using online to
 
 ```
 ├───data
-    ├───train
-        ├───images
-        ├───labels
+    ├───images
+    |   ├───train
+    |   ├───val
+    |───labels 
+    |   ├───train
+    |   ├───val
 ```
+
+## Training Data
+
+
+```
+python3 train.py --img-size 640 --batch 16 --epochs 100 --data custom_data.yaml  --weights yolov5s.pt --nosave --cache
+```
+Optimizer stripped from runs/train/exp/weights/last.pt, 
+python3 detect.py --weight runs/train/exp/weights/last.pt --img 640 --conf 0.25 --source ../test.mp4
+
+## Usage
+To use this Sign Language Detection project, follow these steps:
+
+## REFERENCES
+
+
+* [Annotation Tool Blog](https://towardsdatascience.com/annotate-your-image-using-online-annotation-tool-52d0a742daff)
+* [Medium Blog](https://medium.com/@mokshmalik5757/real-time-detection-of-indian-sign-language-using-yolov5-1c793eb8b40a)
+* [Roboflow Blog](https://blog.roboflow.com/yolov5-improvements-and-evaluation)
